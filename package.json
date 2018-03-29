@@ -1,0 +1,12 @@
+{
+  "name": "cost-by-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hetianqi/cost-by-react.git",
+  "author": "hetianqi <449165578@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.3.0",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
