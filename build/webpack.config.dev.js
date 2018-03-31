@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry: {
 		app: path.join(__dirname, '../src/app.jsx'),
-		vendor: ['react', 'react-dom', 'react-router']
+		vendor: ['react', 'react-dom', 'react-router-dom']
 	},
 	output: {
 		path: path.join(__dirname, '../dist'),
@@ -24,8 +24,7 @@ module.exports = {
 			},
 			{
 				test: /\.(css|less)$/,
-				use: ['style-loader', 'post-loader', 'less-loader'],
-				exclude: /node_modules/
+				use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
 			},
 			{
 				test: /\.(png|gif|jpg|jpeg|bmp)$/i,

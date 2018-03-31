@@ -2,25 +2,20 @@
  * 入口文件
  */
 
-/* eslint-disable */
 import React from 'react';
-/* eslint-enable */
 import ReactDOM from 'react-dom';
+import PageLayout from './common/PageLayout.jsx';
 
-function Child(props) {
-	return props.children();
-}
+import './app.less';
 
-/* eslint-disable */
-function App() {
-/* eslint-enable */
-	return (
-		<Child>{
-			() => {
-				return 'Hello React';
-			}	
-		}</Child>
-	);
+class App extends React.Component {
+	render() {
+		return (
+			<PageLayout>
+				
+			</PageLayout>
+		);
+	}
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
