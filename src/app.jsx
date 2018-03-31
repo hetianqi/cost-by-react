@@ -4,16 +4,18 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PageLayout from './common/PageLayout.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
+import PageLayout from './common/PageLayout';
+import PageRoute from './common/PageRoute';
 
 import './app.less';
 
 class App extends React.Component {
 	render() {
 		return (
-			<PageLayout>
-				
-			</PageLayout>
+			<Router>
+				<PageLayout main={<PageRoute />} nav="导航" />
+			</Router>
 		);
 	}
 }

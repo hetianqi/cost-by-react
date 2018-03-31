@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content } = Layout;
@@ -7,6 +8,11 @@ export default class PageLayout extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+
+	static propTypes = {
+		nav: PropTypes.string.isRequired,
+		main: PropTypes.element.isRequired
+	};
 
 	render() {
 		return (
@@ -20,7 +26,6 @@ export default class PageLayout extends React.Component {
 						theme="dark"
 						mode="horizontal"
 						defaultSelectedKeys={['1']}
-						style={{ lineHeight: '50px' }}
 					>
 						<Menu.Item key="1">单一查询</Menu.Item>
 						<Menu.Item key="2">报表查询</Menu.Item>
@@ -30,11 +35,9 @@ export default class PageLayout extends React.Component {
 				</Header>
 				<Content className="content">
 					<Breadcrumb className="nav">
-						<Breadcrumb.Item>Home</Breadcrumb.Item>
-						<Breadcrumb.Item>List</Breadcrumb.Item>
-						<Breadcrumb.Item>App</Breadcrumb.Item>
+						<Breadcrumb.Item>{this.props.nav}</Breadcrumb.Item>
 					</Breadcrumb>
-					<div className="main">{this.props.children}</div>
+					<div className="main">{this.props.main}</div>
 				</Content>
 			</Layout>
 		);

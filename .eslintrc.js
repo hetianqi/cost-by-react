@@ -3,7 +3,8 @@ module.exports = {
         "browser": true,
         "commonjs": true,
         "es6": true
-    },
+		},
+		"parser": "babel-eslint",
     "extends": ["eslint:recommended", "plugin:react/recommended"],
     "parserOptions": {
         "ecmaFeatures": {
@@ -32,7 +33,7 @@ module.exports = {
             "error",
             "always"
 				],
-				"react/prop-types": "off"
+				"no-console": "off"
 		},
 		"globals": {
 			"__dirname": true

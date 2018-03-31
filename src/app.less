@@ -16,8 +16,8 @@ body {
 }
 
 .header {
-	height: 50px;
-	line-height: 50px;
+	height: 64px;
+	line-height: 64px;
 
 	.logo {
 		margin-right: 20px;
@@ -30,8 +30,9 @@ body {
 		}
 	}
 
-	.ant-menu-dark.ant-menu-horizontal {
+	.ant-menu {
 		border-bottom-width: 0;
+		line-height: 64px;
 	}
 }
 
@@ -46,4 +47,14 @@ body {
 .main {
 	padding: 15px;
 	background-color: white;
+}
+
+.ant-form-item {
+	display: flex;
+}
+.ant-form-item-label {
+	width: 100px;
+}
+.ant-form-item-control-wrapper {
+	flex: 1;
 }

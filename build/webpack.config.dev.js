@@ -15,6 +15,9 @@ module.exports = {
 		path: path.join(__dirname, '../dist'),
 		filename: '[name].js'
 	},
+	resolve: {
+		extensions: ['*', '.js', '.jsx']
+	},
 	module: {
 		rules: [
 			{
@@ -24,7 +27,17 @@ module.exports = {
 			},
 			{
 				test: /\.(css|less)$/,
-				use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+				use: [
+					'style-loader', 
+					'css-loader', 
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [require('autoprefixer')]
+						}
+					},
+					'less-loader'
+				]
 			},
 			{
 				test: /\.(png|gif|jpg|jpeg|bmp)$/i,
