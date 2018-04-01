@@ -5,8 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import PageLayout from './common/PageLayout';
-import PageRoute from './common/PageRoute';
+import PageLayout from './views/common/PageLayout';
+import PageRoute from './views/common/PageRoute';
 
 import './app.less';
 
