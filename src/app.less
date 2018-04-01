@@ -15,38 +15,78 @@ body {
 	min-height: 100%;
 }
 
-.header {
-	height: 64px;
-	line-height: 64px;
+.sider {
+	box-shadow: 2px 0 6px rgba(0,21,41,.35);
 
 	.logo {
-		margin-right: 20px;
-		float: left;
-		font-size: 18px;
-		color: #ccc;
+		padding: 20px 0 20px 24px;
+		font-size: 20px;
+		color: #fff;
+		white-space: nowrap;
 
 		.anticon {
 			margin-right: 5px;
 		}
 	}
+}
+.ant-layout-sider-collapsed {
+	.logo {
+		padding-left: 0;
+		text-align: center;
 
-	.ant-menu {
-		border-bottom-width: 0;
-		line-height: 64px;
+		.anticon {
+			font-size: 24px;
+		}
+	}
+
+	.sys-name {
+		display: none;
 	}
 }
 
-.content {
-	padding: 0 50px;
-	
-	.nav {
-		margin: 16px 0;
-	}	
+.header {
+	height: 64px;
+	padding: 0;
+	line-height: 64px;
+	background-color: #fff;
+
+	.sider-trigger {
+		float: left;
+		margin-right: 10px;
+		padding: 0 24px;
+		font-size: 18px;
+		line-height: 64px;
+		cursor: pointer;
+		transition: color .3s;
+		
+		&:hover {
+			color: #1890ff;
+			background: #e6f7ff;
+		}
+	}
+
+	.user-info {
+		float: right;
+		font-size: 16px;
+	}
+
+	.logout {
+		display: inline-block;
+		padding: 0 14px;
+		margin: 0 10px;
+		line-height: 64px;
+		cursor: pointer;
+
+		&:hover {
+			color: #1890ff;
+			background: #e6f7ff;
+		}
+	}
 }
 
 .main {
-	padding: 15px;
-	background-color: white;
+	height: 100%;
+	margin: 24px;
 }
 
 .ant-form-item {

@@ -1,15 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { 
 	Row,
 	Col,
 	Form,
-	Input
+	Input,
+	Card
 } from 'antd';
 
 export default class SingleProductQuery extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			
+		};
+	}
+
 	render() {
 		return (
-			<Fragment>
+			<Card>
 				<Form>
 					<Row>
 						<Col span={6}>
@@ -17,12 +26,18 @@ export default class SingleProductQuery extends React.Component {
 								<Input />
 							</Form.Item>
 						</Col>
-						<Col span={6}></Col>
-						<Col span={6}></Col>
-						<Col span={6}></Col>
+						<Col span={6}>
+
+						</Col>
+						<Col span={6}>
+						
+						</Col>
+						<Col span={6}>
+						
+						</Col>
 					</Row>
 				</Form>
-			</Fragment>
+			</Card>
 		);
 	}
 }
