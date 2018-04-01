@@ -3,69 +3,86 @@ import PropTypes from 'prop-types';
 import { 
 	Row,
 	Col,
+	Card,
 	Form,
 	Input,
-	Card
+	Select,
+	AutoComplete
 } from 'antd';
 
-const QueryForm = Form.create({
-	onFieldsChange(props, changedFields) {
-		props.onChange(changedFields);
-	},
-	// mapPropsToFields(props) {
-	// 	return {
-	// 		username: Form.createFormField({
-	// 			...props.username,
-	// 			value: props.username.value,
-	// 		}),
-	// 	};
-	// },
-})(props => {
-	const { getFieldDecorator } = props.form;
+const { Option } = Select;
+
+class QueryForm extends React.Component {
+	state = {
+		itemList: []
+	};
+
+	onSelect() {
+
+	}
+
+	render() {
+		const { getFieldDecorator } = this.props.form;
 	
-	return (
-		<Form>
-			<Row>
-				<Col span={6}>
-					<Form.Item label="计划类型" required>
-						{
-							getFieldDecorator('plan_type', {
-								rules: [{ required: true, message: '计划类型必填' }]
-							})(<Input />)
-						}
-					</Form.Item>
-				</Col>
-				<Col span={6}>
-					<Form.Item label="物品编码" required>
-						{
-							getFieldDecorator('item_no', {
-								rules: [{ required: true, message: '物品编码必填' }]
-							})(<Input />)
-						}
-					</Form.Item>
-				</Col>
-				<Col span={6}>
-					<Form.Item label="物品型号" required>
-						{
-							getFieldDecorator('item_no', {
-								rules: [{ required: true, message: '物品型号必填' }]
-							})(<Input />)
-						}
-					</Form.Item>
-				</Col>
-				<Col span={6}>
-					<Form.Item label="物品编码" required>
-						{
-							getFieldDecorator('revision', {
-								rules: [{ required: true, message: '硬件版本必填' }]
-							})(<Input />)
-						}
-					</Form.Item>
-				</Col>
-			</Row>
-		</Form>
-	);
-}); 
+		return (
+			<Form>
+				<Row>
+					<Col span={6}>
+						<Form.Item label="计划类型" required>
+							{
+								getFieldDecorator('plan_type', {
+									rules: [{ required: true, message: '计划类型必填' }]
+								})(
+									<Select>
+										<Option value="年度计划">年度计划</Option>
+										<Option value="季度计划">季度计划</Option>
+										<Option value="月度计划">月度计划</Option>
+										<Option value="临时计划">临时计划</Option>
+										<Option value="临时测算">临时测算</Option>
+									</Select>
+								)
+							}
+						</Form.Item>
+					</Col>
+					<Col span={6}>
+						<Form.Item label="物品编码" required>
+							{
+								getFieldDecorator('item_no', {
+									rules: [{ required: true, message: '物品编码必填' }]
+								})(
+									<AutoComplete
+										dataSource={this.state.itemList}
+										onSelect={this.onSelect}
+										onSearch={this.handleSearch}
+										placeholder="input here"
+									/>
+								)
+							}
+						</Form.Item>
+					</Col>
+					<Col span={6}>
+						<Form.Item label="物品型号" required>
+							{
+								getFieldDecorator('item_no', {
+									rules: [{ required: true, message: '物品型号必填' }]
+								})(<Input />)
+							}
+						</Form.Item>
+					</Col>
+					<Col span={6}>
+						<Form.Item label="物品编码" required>
+							{
+								getFieldDecorator('revision', {
+									rules: [{ required: true, message: '硬件版本必填' }]
+								})(<Input />)
+							}
+						</Form.Item>
+					</Col>
+				</Row>
+			</Form>
+		);
+	}
+}
 
 export default class SingleProductQuery extends React.Component {
 	constructor(props) {
@@ -75,16 +92,7 @@ export default class SingleProductQuery extends React.Component {
 			rightInfo: {
 				tempCalc: false,
 				reCalc: false
-			},
-			queryModel: {
-				plan_type: '',
-				effectivity_date: '',
-				org_id: 81,
-				item_no: '',
-				item_cpxh: '',
-				revision: '',
-				order_by: ''
-			},
+			}
 		};
 
 		this.handleQueryFieldsChange = this.handleQueryFieldsChange.bind(this);
@@ -105,7 +113,7 @@ export default class SingleProductQuery extends React.Component {
 
 		return (
 			<Card>
-				<QueryForm onChange={this.handleQueryFieldsChange} />
+				Form.create()(<QueryForm onChange={this.handleQueryFieldsChange} />)
 			</Card>
 		);
 	}

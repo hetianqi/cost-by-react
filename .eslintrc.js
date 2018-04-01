@@ -33,7 +33,8 @@ module.exports = {
             "error",
             "always"
 				],
-				"no-console": "off"
+				"no-console": "off",
+				"react/prop-types": "off"
 		},
 		"globals": {
 			"__dirname": true
