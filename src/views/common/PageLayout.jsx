@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Layout, Menu, Icon } from 'antd';
+import config from '../../lib/config';
+
 const { Sider, Header, Content } = Layout;
 
 export default class PageLayout extends React.Component {
@@ -30,7 +31,7 @@ export default class PageLayout extends React.Component {
 
 	// 退出登录
 	logout() {
-		location.href = window.OP_CONFIG.logoutUrl + '?returnUrl=' + encodeURIComponent(location.href);
+		location.href = config.logoutUrl + '?returnUrl=' + encodeURIComponent(location.href);
 	}
 
 	render() {
@@ -68,7 +69,7 @@ export default class PageLayout extends React.Component {
 						</Menu.Item>
 					</Menu>
 				</Sider>
-				<Layout className="content">					
+				<Layout>					
 					<Header className="header">
 						<Icon
 							className="sider-trigger"
@@ -82,7 +83,9 @@ export default class PageLayout extends React.Component {
 						</div>
 						<h2 className="page-nav">{this.props.nav}</h2>
 					</Header>
-					<Content className="main">{this.props.main}</Content>
+					<Content className="content">
+						<div className="main">{this.props.main}</div>
+					</Content>
 				</Layout>
 			</Layout>
 		);

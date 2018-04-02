@@ -16,7 +16,7 @@ module.exports = {
 		filename: '[name].js'
 	},
 	resolve: {
-		extensions: ['*', '.js', '.jsx']
+		extensions: ['.js', '.jsx', '*']
 	},
 	module: {
 		rules: [
@@ -36,7 +36,13 @@ module.exports = {
 							plugins: [require('autoprefixer')]
 						}
 					},
-					'less-loader'
+					{
+						loader: 'less-loader',
+						options: {
+							javascriptEnabled: true,
+							modifyVars: require('../src/theme.js')
+						}
+					}
 				]
 			},
 			{
@@ -82,6 +88,7 @@ module.exports = {
 		contentBase: path.join(__dirname, '../dist'),
 		port: 8000,
 		hot: true,
-		compress: true
+		compress: true,
+		host: '192.168.102.12'
 	}
 };
